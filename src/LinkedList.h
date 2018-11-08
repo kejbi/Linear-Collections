@@ -54,7 +54,7 @@ namespace aisdi {
         }
 
         LinkedList(const LinkedList &other):LinkedList(){
-            for(auto it = other.begin(); it!=other.end(); it++){
+            for(auto it = other.begin(); it!=other.end(); ++it){
                 this->append(*it);
             }
         }
@@ -74,7 +74,7 @@ namespace aisdi {
         LinkedList &operator=(const LinkedList &other) {
             if(this!=&other){
                 this->erase(this->cbegin(),this->cend());
-                for(auto it = other.begin(); it!=other.end(); it++){
+                for(auto it = other.begin(); it!=other.end(); ++it){
                     this->append(*it);
                 }
             }

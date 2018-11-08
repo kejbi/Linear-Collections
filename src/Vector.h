@@ -31,7 +31,7 @@ namespace aisdi {
 
         void reallocateMemory(size_type newCapacity){
             pointer temp = new Type[newCapacity];
-            for(size_type i=0;i<this->size;i++){
+            for(size_type i=0;i<this->size;++i){
                 temp[i]=this->container[i];
             }
             delete [] container;
@@ -45,13 +45,13 @@ namespace aisdi {
         }
 
         Vector(std::initializer_list<Type> l):Vector() {
-            for(auto i=l.begin();i!=l.end();i++){
+            for(auto i=l.begin();i!=l.end();++i){
                 this->append(*i);
             }
         }
 
         Vector(const Vector &other):Vector() {
-            for(auto i=other.begin();i!=other.end();i++){
+            for(auto i=other.begin();i!=other.end();++i){
                 this->append(*i);
             }
         }
@@ -70,7 +70,7 @@ namespace aisdi {
         Vector &operator=(const Vector &other) {
             if(this!=&other){
                 this->erase(this->cbegin(),this->cend());
-                for(auto i=other.begin();i!=other.end();i++){
+                for(auto i=other.begin();i!=other.end();++i){
                     this->append(*i);
                 }
             }
